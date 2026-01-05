@@ -1,0 +1,62 @@
+/* Services section styles: alternating rows with decorative blobs/dot-grids and media boxes */
+.services{ padding:72px 24px; background:#fff; color:#083241 }
+.services-inner{ max-width:var(--container); margin:0 auto; display:flex; flex-direction:column; gap:88px }
+.service-row{ display:flex; align-items:center; gap:36px }
+.service-row.row-right-img{ flex-direction:row-reverse }
+
+.service-media{ position:relative; width:48%; min-width:260px; display:flex; align-items:center; justify-content:center }
+.service-content{ width:52% }
+
+.service-title{ font-size:26px; line-height:1.15; margin:0 0 12px; font-weight:700; color:var(--brand-dark) }
+.service-title .accent{ color:var(--brand-accent) }
+.service-desc{ color:var(--muted); margin:0; font-size:15px; line-height:1.7 }
+
+.media-box{ position:relative; width:360px; height:240px; border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 18px 40px rgba(8,50,50,0.06); z-index:3 }
+.media-img{ width:100%; height:100%; object-fit:cover; display:block }
+
+.blob{ position:absolute; width:300px; height:220px; background:rgba(15,160,122,0.06); border-radius:56px; top:6px; left:-40px; z-index:0 }
+.blob-right{ right:-40px; left:auto; top:6px; background:rgba(230,182,74,0.06) }
+
+.dot-grid{ position:absolute; width:72px; height:72px; background-image: radial-gradient(var(--brand-green) 2px, transparent 2px); background-size:8px 8px; bottom:16px; left:14px; z-index:2; opacity:0.95 }
+.dots-right{ right:20px; left:auto }
+
+.accent-ring{ position:absolute; width:66px; height:66px; border-radius:50%; border:6px solid var(--brand-green); bottom:-16px; right:-18px; box-shadow:0 8px 20px rgba(15,160,122,0.08); z-index:2 }
+
+.tilt-left{ transform:rotate(-6deg) }
+.tilt-right{ transform:rotate(6deg) }
+
+/* small decorative cube accent */
+.cube{ position:absolute; width:20px; height:20px; transform:rotateX(40deg) rotateY(-22deg) rotateZ(18deg); background:linear-gradient(135deg, #cde7df 0%, #9bd7c4 100%); box-shadow:0 6px 14px rgba(8,50,50,0.08); right:8px; top:-18px; border-radius:4px; z-index:4 }
+.cube::after{ content:''; position:absolute; left:6px; top:6px; width:10px; height:10px; background:linear-gradient(135deg,#f6e7c8,#e6b64a); transform:translateZ(6px); opacity:0.95 }
+
+.cube-left{ left:8px; right:auto }
+.cube-right{ right:8px; left:auto }
+
+/* subtle entrance */
+.service-row{ opacity:0; transform:translateY(8px); animation:fadeUp .6s ease forwards }
+.service-row:nth-child(1){ animation-delay:.06s }
+.service-row:nth-child(2){ animation-delay:.12s }
+.service-row:nth-child(3){ animation-delay:.18s }
+.service-row:nth-child(4){ animation-delay:.24s }
+.service-row:nth-child(5){ animation-delay:.30s }
+.service-row:nth-child(6){ animation-delay:.36s }
+
+@keyframes fadeUp{ to{ opacity:1; transform:none } }
+
+/* Responsive: stack rows on small screens */
+@media (max-width:900px){
+  .services-inner{ gap:48px }
+  .service-row{ flex-direction:column; text-align:left }
+  .service-row.row-right-img{ flex-direction:column }
+  .service-media, .service-content{ width:100% }
+  .media-box{ width:100%; height:220px }
+  .blob, .dot-grid, .accent-ring{ display:none }
+  .service-title{ font-size:20px }
+  .service-desc{ font-size:14px }
+}
+
+/* small tweaks for very small screens */
+@media (max-width:460px){
+  .services{ padding:48px 16px }
+  .media-box{ height:180px }
+}

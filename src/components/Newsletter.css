@@ -1,0 +1,11 @@
+.newsletter{ padding:26px 20px; border-top:1px solid #f0f0f0; }
+.news-inner{ max-width:var(--container); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px }
+.news-left{ display:flex; align-items:center; gap:16px }
+.bell{ width:52px; height:52px; border-radius:50%; background:#f3c12a; display:inline-block; box-shadow:0 8px 20px rgba(243,193,42,0.15) }
+.news-left h4{ margin:0; font-size:16px }
+.news-left .muted{ color:#6b6b6b; font-size:13px; margin:4px 0 0 0 }
+.news-right .news-form{ display:flex; gap:8px }
+.news-form input{ padding:10px 12px; border-radius:6px; border:1px solid #ddd; min-width:260px }
+.news-form button{ background:#0f0f0f; color:#fff; padding:10px 14px; border-radius:6px; border:none; font-weight:700 }
+
+@media (max-width:900px){ .news-inner{ flex-direction:column; align-items:flex-start } .news-right{ width:100% } .news-form input{ width:100% } }

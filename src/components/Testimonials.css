@@ -1,0 +1,161 @@
+.testimonials{ 
+    padding:80px 20px; 
+    background:#fff;
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.testimonials.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+.test-inner{ max-width:var(--container); margin:0 auto; text-align:center }
+.test-inner h3{ margin:0 0 12px 0; font-size:32px; color:#083241; font-weight:700 }
+.test-inner .lead{ color:#6b6b6b; font-size:15px; margin:0 0 48px 0; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.6 }
+
+/* Client Images Ring */
+.testimonials-clients-ring{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:140px;
+    margin:0 auto 56px;
+    width:100%;
+    max-width:500px;
+}
+.client-avatar-ring{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:4px solid #fff;
+    overflow:hidden;
+    position:absolute;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:transform 0.3s ease;
+    animation:ringFloat 3s ease-in-out infinite;
+    animation-delay:calc(var(--index) * 0.2s);
+}
+.client-avatar-ring:nth-child(1){
+    left:calc(50% - 40px);
+    top:0;
+    transform:translateX(0);
+}
+.client-avatar-ring:nth-child(2){
+    left:calc(50% + 20px);
+    top:20px;
+    transform:translateX(0);
+}
+.client-avatar-ring:nth-child(3){
+    right:calc(50% - 60px);
+    top:30px;
+    transform:translateX(0);
+}
+.client-avatar-ring:nth-child(4){
+    left:calc(50% - 60px);
+    bottom:20px;
+    transform:translateX(0);
+}
+.client-avatar-ring:nth-child(5){
+    left:calc(50% + 40px);
+    bottom:10px;
+    transform:translateX(0);
+}
+.client-avatar-ring img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.client-avatar-ring:hover{
+    transform:scale(1.1);
+    z-index:10;
+}
+.ring-accent{
+    position:absolute;
+    width:100px;
+    height:100px;
+    border:3px solid #e6b64a;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    z-index:0;
+    opacity:0.3;
+}
+
+.quote-row{ display:flex; gap:24px; justify-content:center; flex-wrap:wrap }
+.quote-card{ 
+    width:460px; 
+    max-width:100%;
+    text-align:left; 
+    background:#fff; 
+    border:1px solid #f0f0f0; 
+    padding:28px; 
+    border-radius:12px; 
+    box-shadow:0 6px 20px rgba(5,20,24,0.06);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeInUp 0.6s ease forwards;
+}
+.quote-card:nth-child(1){ animation-delay:0.2s }
+.quote-card:nth-child(2){ animation-delay:0.4s }
+.quote-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(5,20,24,0.1);
+}
+.quote{ font-size:15px; color:#555; margin:0 0 20px 0; line-height:1.7 }
+.quote-meta{ display:flex; align-items:center; gap:12px }
+.meta-name{ font-weight:700; font-size:15px; color:#083241 }
+.meta-role{ font-size:13px; color:#7a8a8a }
+
+@keyframes ringFloat{
+    0%,100%{ transform:translateY(0) }
+    50%{ transform:translateY(-5px) }
+}
+@keyframes fadeInUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media (max-width:900px){ 
+    .testimonials{ padding:60px 20px }
+    .test-inner h3{ font-size:28px }
+    .quote-row{ flex-direction:column; align-items:stretch } 
+    .quote-card{ width:100% }
+    .testimonials-clients-ring{
+        height:120px;
+        margin-bottom:40px;
+    }
+    .client-avatar-ring{
+        width:60px;
+        height:60px;
+        border-width:3px;
+    }
+    .ring-accent{
+        width:80px;
+        height:80px;
+    }
+}
+
+@media (max-width:600px){
+    .testimonials-clients-ring{
+        height:100px;
+    }
+    .client-avatar-ring{
+        width:50px;
+        height:50px;
+    }
+    .client-avatar-ring:nth-child(1){ left:calc(50% - 25px); top:0 }
+    .client-avatar-ring:nth-child(2){ left:calc(50% + 15px); top:15px }
+    .client-avatar-ring:nth-child(3){ right:calc(50% - 45px); top:25px }
+    .client-avatar-ring:nth-child(4){ left:calc(50% - 45px); bottom:15px }
+    .client-avatar-ring:nth-child(5){ left:calc(50% + 30px); bottom:5px }
+    .ring-accent{
+        width:60px;
+        height:60px;
+    }
+}

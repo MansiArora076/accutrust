@@ -1,0 +1,56 @@
+/* Scroll-based animations */
+.about-left, .about-right{
+    opacity:0;
+    transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.about-left{ transform:translateX(-50px) }
+.about-right{ transform:translateX(50px) }
+.about-left.visible{
+    opacity:1;
+    transform:translateX(0);
+    animation:slideInLeft 0.8s ease forwards;
+}
+.about-right.visible{
+    opacity:1;
+    transform:translateX(0);
+    animation:slideInRight 0.8s ease forwards;
+}
+@keyframes slideInLeft{
+    from{ opacity:0; transform:translateX(-50px) }
+    to{ opacity:1; transform:translateX(0) }
+}
+@keyframes slideInRight{
+    from{ opacity:0; transform:translateX(50px) }
+    to{ opacity:1; transform:translateX(0) }
+}
+
+/* About Page Content */
+.about-page{ padding:80px 20px }
+.about-inner{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 420px; gap:40px; align-items:center }
+.about-left .eyebrow{ font-size:12px; color:#6b6b6b; font-weight:700; letter-spacing:1px }
+.about-left h1{ font-size:48px; margin:12px 0; color:#0b0b0b }
+.about-copy{ color:#556b6b; line-height:1.8; font-size:16px }
+.about-right img{ width:100%; height:auto; border-radius:14px; display:block; transition:transform 0.3s ease }
+.about-right.visible img{ animation:scaleIn 0.8s ease forwards }
+.about-fallback{ width:100%; height:260px; background:linear-gradient(180deg,#f4f7f7,#fff); border-radius:12px }
+@keyframes scaleIn{
+    from{ opacity:0; transform:scale(0.95) }
+    to{ opacity:1; transform:scale(1) }
+}
+
+@media (max-width:900px){ 
+    .about-page{ padding:60px 20px }
+    .about-inner{ 
+        grid-template-columns:1fr; 
+        gap:32px;
+    } 
+    .about-right{ order:-1; margin-bottom:20px }
+    .about-left h1{ font-size:36px }
+}
+
+@media (max-width:600px){
+    .about-page{ padding:48px 16px }
+    .about-inner{ gap:24px }
+    .about-left h1{ font-size:32px }
+    .about-copy{ font-size:15px }
+}

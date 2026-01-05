@@ -1,0 +1,4 @@
+.contact{ padding:42px 20px; max-width:900px; margin:0 auto }
+.contact-card{ background:#fff; padding:20px; border-radius:10px; box-shadow:0 8px 24px rgba(5,20,24,0.06) }
+.contact-list{ list-style:none; padding:0; margin:0 }
+.contact-list li{ padding:8px 0; color:#163d43 }

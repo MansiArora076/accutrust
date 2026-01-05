@@ -1,0 +1,16 @@
+.contact-page{ padding:64px 20px }
+.contact-inner{ max-width:1100px; margin:0 auto; text-align:center }
+.contact-inner h2{ margin:0 0 6px 0; font-size:28px }
+.contact-sub{ margin:0 0 28px 0; color:#6b6b6b }
+.contact-grid{ display:grid; grid-template-columns:1fr 480px; gap:40px; align-items:start; margin-top:18px }
+.contact-info{ text-align:left }
+.info-block{ margin-bottom:18px }
+.info-block h4{ margin:0 0 6px 0; font-size:13px; color:#222 }
+.info{ color:#556b6b }
+.contact-form{ text-align:left }
+.contact-form h4{ margin:0 0 12px 0 }
+.contact-form form{ display:flex; flex-direction:column; gap:12px }
+.contact-form input, .contact-form textarea{ padding:10px 12px; border:1px solid #e0e0e0; border-radius:4px }
+.btn-submit{ width:110px; background:#f3c12a; color:#0b0b0b; border:none; padding:8px 12px; border-radius:20px; font-weight:700 }
+
+@media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; } .contact-form{ order:2 } }
