@@ -7,9 +7,9 @@ export default function Contact() {
             <div className="contact-card">
                 <h2>Contact Us</h2>
                 <ul className="contact-list">
-                    <li><strong>Phone:</strong> (555) 123-4567</li>
-                    <li><strong>Email:</strong> info@jdmtax.example</li>
-                    <li><strong>Address:</strong> 123 Main St, Your City</li>
+                    <li><strong>Phone:</strong> (212) 555-0100</li>
+                    <li><strong>Email:</strong> info@accutrustfinancial.com</li>
+                    <li><strong>Address:</strong> 123 Financial District, Suite 100<br />New York, NY 10004</li>
                 </ul>
             </div>
         </section>

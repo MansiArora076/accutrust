@@ -54,14 +54,14 @@ export default function Testimonials() {
         <section className="testimonials" ref={sectionRef}>
             <div className="test-inner">
                 <h3>Hear What Our Clients Are Saying</h3>
-                <p className="lead">At JDM, we take pride in delivering exceptional financial services that make a difference for our clients. Here's what some of them have to say about their experience with us</p>
-                
+                <p className="lead">At AccuTrust Financial, we take pride in delivering exceptional financial services that make a difference for our clients. Here's what some of them have to say about their experience with us</p>
+
                 <div className="testimonials-clients-ring">
                     {clientImages.map((client, index) => (
-                        <div 
-                            key={index} 
-                            className="client-avatar-ring" 
-                            style={{ 
+                        <div
+                            key={index}
+                            className="client-avatar-ring"
+                            style={{
                                 '--index': index,
                                 zIndex: clientImages.length - index
                             }}
@@ -73,8 +73,8 @@ export default function Testimonials() {
                 </div>
 
                 <div className="quote-row">
-                    <QuoteCard quote={`"Incredible Support" JDM has been an incredible asset to our company. Their attention to detail and expertise in bookkeeping and financial reporting has saved us time and money.`} name="Laura Simms" role="Entrepreneur" />
-                    <QuoteCard quote={`"Excellent Services" Working with JDM has completely transformed the way I handle my finances. Their payroll and tax services are seamless.`} name="Albert Lamont" role="Business Owner" />
+                    <QuoteCard quote={`"Incredible Support" AccuTrust Financial has been an incredible asset to our company. Their attention to detail and expertise in bookkeeping and financial reporting has saved us time and money.`} name="Laura Simms" role="Entrepreneur" />
+                    <QuoteCard quote={`"Excellent Services" Working with AccuTrust Financial has completely transformed the way I handle my finances. Their payroll and tax services are seamless.`} name="Albert Lamont" role="Business Owner" />
                 </div>
             </div>
         </section>

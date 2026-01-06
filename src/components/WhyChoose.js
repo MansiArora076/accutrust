@@ -33,7 +33,7 @@ function SmallCard({ title, text, icon, index }) {
     };
 
     return (
-        <div 
+        <div
             ref={cardRef}
             className={`why-card ${isClicked ? 'clicked' : ''}`}
             onClick={handleClick}
@@ -90,7 +90,7 @@ export default function WhyChoose() {
             <div className="why-inner">
                 <h3 className="why-title">Why Choose Us?</h3>
                 <div className="why-cards">
-                    <SmallCard icon="icon-1" title="Expertise You Can Trust" text="With years of experience in bookkeeping, tax, payroll and financial consulting, JDM provides you financial expertise tailored to your unique needs." index={0} />
+                    <SmallCard icon="icon-1" title="Expertise You Can Trust" text="With years of experience in bookkeeping, tax, payroll and financial consulting, AccuTrust Financial provides you financial expertise tailored to your unique needs." index={0} />
                     <SmallCard icon="icon-2" title="Tailored Solutions" text="We understand that every business is different. Services are designed to meet the specific goals and challenges of your business." index={1} />
                     <SmallCard icon="icon-3" title="Accuracy & Compliance" text="We ensure your financial records are accurate and comply with legal and regulatory standards, giving you peace of mind." index={2} />
                 </div>
@@ -98,7 +98,7 @@ export default function WhyChoose() {
                 <div className="why-feature">
                     <div className="why-text">
                         <h4>Focus on growing your business while we handle your accounting needs with precision</h4>
-                        <p>At JDM, we provide daily, monthly, and annual financial reports along with detailed expense summaries, empowering you to effectively manage your finances.</p>
+                        <p>At AccuTrust Financial, we provide daily, monthly, and annual financial reports along with detailed expense summaries, empowering you to effectively manage your finances.</p>
                     </div>
                     <div className="why-media">
                         <div className="circle-photo">

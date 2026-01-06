@@ -8,7 +8,7 @@ export default function CTA() {
             <div className="cta-inner">
                 <div className="cta-left">
                     <h1>Ready to take control of <br />your finances?</h1>
-                    <p>Contact JDM today for a free consultation and see how we can<br /> streamline your business operations with our tailored financial <br />solutions.</p>
+                    <p>Contact AccuTrust Financial today for a free consultation and discover how we can<br /> streamline your business operations with our comprehensive financial <br />solutions tailored to your needs.</p>
                 </div>
                 <div className="cta-right">
                     <div className="cta-photo">
