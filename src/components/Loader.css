@@ -26,7 +26,7 @@
     position:absolute;
     width:120px;
     height:120px;
-    border:3px solid rgba(8,50,65,0.1);
+    /* border:3px solid rgba(8,50,65,0.1); */
     border-top-color:#083241;
     border-radius:50%;
     animation:spin 1s linear infinite;
@@ -36,7 +36,7 @@
     height:24px; 
     background:linear-gradient(135deg,#e6b64a,#d99b18); 
     transform:rotate(45deg); 
-    border-radius:8px; 
+    /* border-radius:8px;  */
     box-shadow:0 8px 24px rgba(230,182,74,0.3);
     position:relative;
     z-index:1;

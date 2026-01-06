@@ -2,11 +2,14 @@
 .services-page{
     min-height:100vh;
     background:#fbfbfb;
+    overflow-x:hidden;
+    width:100%;
 }
 .services-page-content{
-    padding:80px 20px;
+    padding:88px 20px;
     max-width:var(--container);
     margin:0 auto;
+    width:100%;
 }
 .services-page-header{
     text-align:center;
@@ -185,7 +188,7 @@
 
 @media (max-width:480px){
     .services-page-content{
-        padding:48px 16px;
+        padding:80px 16px;
     }
     .services-page-header{
         margin-bottom:40px;

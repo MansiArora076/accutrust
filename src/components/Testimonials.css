@@ -88,6 +88,7 @@
 .quote-card{ 
     width:460px; 
     max-width:100%;
+    min-width:0;
     text-align:left; 
     background:#fff; 
     border:1px solid #f0f0f0; 
@@ -122,13 +123,15 @@
 }
 
 @media (max-width:900px){ 
-    .testimonials{ padding:60px 20px }
-    .test-inner h3{ font-size:28px }
-    .quote-row{ flex-direction:column; align-items:stretch } 
-    .quote-card{ width:100% }
+    .testimonials{ padding:60px 20px; overflow-x:hidden; }
+    .test-inner{ width:100%; }
+    .test-inner h3{ font-size:28px; }
+    .quote-row{ flex-direction:column; align-items:stretch; width:100%; } 
+    .quote-card{ width:100%; max-width:100%; padding:24px; }
     .testimonials-clients-ring{
         height:120px;
         margin-bottom:40px;
+        max-width:100%;
     }
     .client-avatar-ring{
         width:60px;

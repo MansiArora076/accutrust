@@ -1,4 +1,11 @@
-.site-root { color:var(--brand-dark); background:linear-gradient(180deg,#fbfdfd 0%, #ffffff 100%); min-height:100vh }
+.site-root { 
+  color:var(--brand-dark); 
+  background:linear-gradient(180deg,#fbfdfd 0%, #ffffff 100%); 
+  min-height:100vh;
+  overflow-x:hidden;
+  width:100%;
+  position:relative;
+}
 
 /* Global utilities */
 a{ color:inherit }

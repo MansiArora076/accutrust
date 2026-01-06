@@ -4,6 +4,8 @@
     opacity:0;
     transform:translateY(30px);
     transition:opacity 0.8s ease, transform 0.8s ease;
+    overflow-x:hidden;
+    width:100%;
 }
 .why-choose.visible{
     opacity:1;

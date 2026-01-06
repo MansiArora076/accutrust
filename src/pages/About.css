@@ -25,7 +25,7 @@
 }
 
 /* About Page Content */
-.about-page{ padding:80px 20px }
+.about-page{ padding:98px 20px; overflow-x:hidden; width:100%; }
 .about-inner{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 420px; gap:40px; align-items:center }
 .about-left .eyebrow{ font-size:12px; color:#6b6b6b; font-weight:700; letter-spacing:1px }
 .about-left h1{ font-size:48px; margin:12px 0; color:#0b0b0b }
@@ -49,7 +49,7 @@
 }
 
 @media (max-width:600px){
-    .about-page{ padding:48px 16px }
+    .about-page{ padding:85px 16px }
     .about-inner{ gap:24px }
     .about-left h1{ font-size:32px }
     .about-copy{ font-size:15px }

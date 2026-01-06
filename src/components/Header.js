@@ -1,91 +1,148 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FaPhone, FaTimes } from 'react-icons/fa';
+import { HiMenuAlt3 } from 'react-icons/hi';
 import './Header.css';
 import images from '../assets/images';
 
-
 export default function Header() {
-    const [open, setOpen] = useState(false);
-    const [headerHeight, setHeaderHeight] = useState(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const headerRef = useRef(null);
     const location = useLocation();
 
-    // close mobile menu on navigation
-    useEffect(() => { setOpen(false); }, [location.pathname]);
-
-    // lock header height when menu opens to avoid content jump
+    // Close mobile menu when route changes
     useEffect(() => {
-        const headerEl = headerRef.current
-        if (!headerEl) return
-        if (open) {
-            if (headerHeight) headerEl.style.minHeight = `${headerHeight}px`
-        } else {
-            headerEl.style.minHeight = ''
-        }
-        return () => { if (headerEl) headerEl.style.minHeight = '' }
-    }, [open, headerHeight]);
+        setIsMenuOpen(false);
+    }, [location.pathname]);
 
-    // prevent page shift when mobile menu opens by locking body scroll and compensating for scrollbar
+    // Toggle body scroll when mobile menu is open
     useEffect(() => {
-        const body = document.body
-        if (open) {
-            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
-            if (scrollBarWidth > 0) body.style.paddingRight = `${scrollBarWidth}px`
-            body.style.overflow = 'hidden'
+        if (isMenuOpen) {
+            document.body.classList.add('mobile-menu-open');
         } else {
-            body.style.overflow = ''
-            body.style.paddingRight = ''
+            document.body.classList.remove('mobile-menu-open');
         }
+
+        // Cleanup function
         return () => {
-            body.style.overflow = ''
-            body.style.paddingRight = ''
-        }
-    }, [open]);
+            document.body.classList.remove('mobile-menu-open');
+        };
+    }, [isMenuOpen]);
 
-    const handleToggle = () => {
-        if (!open && headerRef.current) {
-            setHeaderHeight(headerRef.current.offsetHeight)
+    // Close menu when clicking outside
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (headerRef.current && !headerRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
         }
-        setOpen(v => !v)
-    }
+
+        // Add event listener when menu is open
+        if (isMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        // Cleanup
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
+
+    // Toggle mobile menu
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    // Handle phone click
+    const handlePhoneClick = (e) => {
+        e.preventDefault();
+        window.location.href = 'tel:+1234567890';
+    };
 
     return (
-        <header className="site-header" ref={headerRef}>
-            <div className="header-inner">
-                <div className="header-left">
-                    <div className="logo">
-                        {images['acculogo'] ? (
-                            <img src={images['acculogo']} alt="AccuTrust" className="logo-img" />
-                        ) : (
-                            <div className="logo-text">AccuTrust</div>
-                        )}
+        <>
+            <header className={`site-header ${isMenuOpen ? 'mobile-menu-open' : ''}`} ref={headerRef}>
+                <div className="header-inner">
+                    <div className="header-left">
+                        <Link to="/" className="logo" onClick={() => setIsMenuOpen(false)}>
+                            {/* {images['acculogo'] ? (
+                                <img src={images['acculogo']} alt="AccuTrust" className="logo-img" />
+                            ) : (
+                                <span className="logo-text">AccuTrust</span>
+                            )} */}
+
+                            <h1 className="logo-heading">AccuTrust</h1>
+
+                        </Link>
                     </div>
+
+                    <nav className={`header-nav ${isMenuOpen ? 'open' : ''}`}>
+                        <div className="nav-links">
+                            <Link
+                                to="/"
+                                className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Home
+                            </Link>
+                            <Link
+                                to="/about"
+                                className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                About Us
+                            </Link>
+                            <Link
+                                to="/services"
+                                className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Services
+                            </Link>
+                            <Link
+                                to="/contact"
+                                className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Contact
+                            </Link>
+                        </div>
+
+                        <div className="header-cta">
+                            <a
+                                href="tel:+1234567890"
+                                className="call-btn"
+                                onClick={handlePhoneClick}
+                            >
+                                <FaPhone className="call-icon" /> Call Us
+                            </a>
+                        </div>
+                    </nav>
+
+                    <button
+                        className="mobile-toggle"
+                        onClick={toggleMenu}
+                        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isMenuOpen}
+                    >
+                        {isMenuOpen ? (
+                            <FaTimes className="menu-icon" />
+                        ) : (
+                            <HiMenuAlt3 className="menu-icon" />
+                        )}
+                    </button>
                 </div>
+            </header>
 
-                <button
-                    className={`mobile-toggle ${open ? 'is-open' : ''}`}
-                    aria-expanded={open}
-                    aria-label="Toggle navigation"
-                    onClick={handleToggle}
-                >
-                    <span />
-                    <span />
-                    <span />
-                </button>
-
-                <nav className={`header-center ${open ? 'open' : ''}`}>
-                    <Link className="nav-link" to="/" onClick={() => setOpen(false)}>Home</Link>
-                    <Link className="nav-link" to="/about" onClick={() => setOpen(false)}>About Us</Link>
-                    <Link className="nav-link" to="/services" onClick={() => setOpen(false)}>Our Services</Link>
-                    <Link className="nav-link" to="/contact" onClick={() => setOpen(false)}>Contact Us</Link>
-                </nav>
-
-                <div className="header-right">
-                    <a className="call-btn" href="tel:+15551234567">Call Now</a>
-                </div>
-            </div>
-
-            <div className={`mobile-backdrop ${open ? 'visible' : ''}`} onClick={() => setOpen(false)} />
-        </header>
+            {/* Mobile call button - only visible on mobile */}
+            <a
+                href="tel:+1234567890"
+                className="mobile-call-btn"
+                onClick={handlePhoneClick}
+                aria-label="Call us"
+            >
+                <FaPhone className="call-icon" />
+            </a>
+        </>
     );
 }

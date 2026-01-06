@@ -4,14 +4,14 @@
 .service-row{ display:flex; align-items:center; gap:36px }
 .service-row.row-right-img{ flex-direction:row-reverse }
 
-.service-media{ position:relative; width:48%; min-width:260px; display:flex; align-items:center; justify-content:center }
+.service-media{ position:relative; width:48%; min-width:0; display:flex; align-items:center; justify-content:center }
 .service-content{ width:52% }
 
 .service-title{ font-size:26px; line-height:1.15; margin:0 0 12px; font-weight:700; color:var(--brand-dark) }
 .service-title .accent{ color:var(--brand-accent) }
 .service-desc{ color:var(--muted); margin:0; font-size:15px; line-height:1.7 }
 
-.media-box{ position:relative; width:360px; height:240px; border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 18px 40px rgba(8,50,50,0.06); z-index:3 }
+.media-box{ position:relative; width:360px; max-width:100%; height:240px; border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 18px 40px rgba(8,50,50,0.06); z-index:3 }
 .media-img{ width:100%; height:100%; object-fit:cover; display:block }
 
 .blob{ position:absolute; width:300px; height:220px; background:rgba(15,160,122,0.06); border-radius:56px; top:6px; left:-40px; z-index:0 }
@@ -45,18 +45,20 @@
 
 /* Responsive: stack rows on small screens */
 @media (max-width:900px){
-  .services-inner{ gap:48px }
-  .service-row{ flex-direction:column; text-align:left }
-  .service-row.row-right-img{ flex-direction:column }
-  .service-media, .service-content{ width:100% }
-  .media-box{ width:100%; height:220px }
-  .blob, .dot-grid, .accent-ring{ display:none }
-  .service-title{ font-size:20px }
-  .service-desc{ font-size:14px }
+  .services{ padding:60px 20px; }
+  .services-inner{ gap:48px; padding:0; }
+  .service-row{ flex-direction:column; text-align:left; width:100%; }
+  .service-row.row-right-img{ flex-direction:column; }
+  .service-media, .service-content{ width:100%; min-width:0; }
+  .media-box{ width:100%; max-width:100%; height:220px; }
+  .blob, .dot-grid, .accent-ring{ display:none; }
+  .service-title{ font-size:20px; }
+  .service-desc{ font-size:14px; }
 }
 
 /* small tweaks for very small screens */
 @media (max-width:460px){
-  .services{ padding:48px 16px }
-  .media-box{ height:180px }
+  .services{ padding:48px 16px; }
+  .services-inner{ gap:40px; }
+  .media-box{ height:180px; }
 }

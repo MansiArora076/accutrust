@@ -10,7 +10,7 @@ export default function Loader() {
                     <div className="diamond" />
                     <div className="diamond" />
                 </div>
-                <div className="loader-brand">AccuTrust</div>
+                {/* <div className="loader-brand">AccuTrust</div> */}
             </div>
         </div>
     )

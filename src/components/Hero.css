@@ -1,4 +1,4 @@
-.hero{ background: linear-gradient(180deg,#ffffff 0%, #f4fbfb 100%); padding:60px 20px; }
+.hero{ background: linear-gradient(180deg,#ffffff 0%, #f4fbfb 100%); padding:98px 20px; }
 .hero-inner{ max-width:var(--container); margin:0 auto; display:grid; grid-template-columns:1fr minmax(260px,420px); align-items:center; gap:40px; }
 .hero-left{ 
     opacity:0;
@@ -40,6 +40,7 @@
 }
 .hero-right.visible .card.large{ 
     width:260px; 
+    max-width:100%;
     height:180px; 
     right:10px; 
     top:80px; 
@@ -48,6 +49,7 @@
 }
 .hero-right.visible .card.med{ 
     width:120px; 
+    max-width:100%;
     height:120px; 
     right:170px; 
     top:20px; 
@@ -57,6 +59,7 @@
 }
 .hero-right.visible .card.small{ 
     width:100px; 
+    max-width:100%;
     height:100px; 
     right:40px; 
     top:200px; 
@@ -95,7 +98,7 @@
 }
 
 @media (max-width:600px){
-  .hero{ padding:40px 16px }
+  .hero{ padding:85px 16px }
   .hero-left h1{ font-size:32px }
   .hero-left .lead, .hero-left .muted{ font-size:16px }
   .hero-right .card{ width:60%; height:140px }
